@@ -193,6 +193,8 @@ const Select = React.forwardRef(
 
     const mergedId = useId(id);
     const multiple = isMultiple(mode);
+    // 如果 children存在但是options不存在,则说明使用children作为Data
+    // 并且 options的优先级高于children
     const childrenAsData = !!(!options && children);
 
     const mergedFilterOption = React.useMemo(() => {
@@ -222,6 +224,8 @@ const Select = React.forwardRef(
 
     // =========================== Option ===========================
     const parsedOptions = useOptions(options, children, mergedFieldNames);
+    // valueOptions: Map(value,对应option)
+    // labelOptions: Map(label,对应option)
     const { valueOptions, labelOptions, options: mergedOptions } = parsedOptions;
 
     // ========================= Wrap Value =========================
@@ -469,6 +473,7 @@ const Select = React.forwardRef(
     };
 
     // Used for OptionList selection
+    // 更新 value: OptionsList内部触发
     const onInternalSelect = useRefFunc<OnInternalSelect>((val, info) => {
       let cloneValues: (RawValueType | DisplayValueType)[];
 

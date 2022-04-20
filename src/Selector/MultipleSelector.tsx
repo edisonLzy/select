@@ -66,7 +66,6 @@ const SelectSelector: React.FC<SelectorProps> = (props) => {
     onInputCompositionStart,
     onInputCompositionEnd,
   } = props;
-
   const measureRef = React.useRef<HTMLSpanElement>(null);
   const [inputWidth, setInputWidth] = useState(0);
   const [focused, setFocused] = useState(false);

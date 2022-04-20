@@ -153,6 +153,7 @@ const OptionList: React.ForwardRefRenderFunction<RefOptionListProps, OptionListP
   // ========================== Values ==========================
   const onSelectValue = (value: RawValueType) => {
     if (value !== undefined) {
+      // 这里的onSelect是 select中通过 context传递过来的 onInternalSelect
       onSelect(value, { selected: !rawValues.has(value) });
     }
 
@@ -345,6 +346,7 @@ const OptionList: React.ForwardRefRenderFunction<RefOptionListProps, OptionListP
               }}
               onClick={() => {
                 if (!disabled) {
+                  // 更新value流程 :
                   onSelectValue(value);
                 }
               }}

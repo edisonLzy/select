@@ -31,7 +31,7 @@ interface InputProps {
     HTMLInputElement | HTMLTextAreaElement | HTMLElement
   >;
 }
-
+// 渲染的input框
 const Input: React.RefForwardingComponent<InputRef, InputProps> = (
   {
     prefixCls,
@@ -56,6 +56,7 @@ const Input: React.RefForwardingComponent<InputRef, InputProps> = (
   },
   ref,
 ) => {
+  
   let inputNode: React.ComponentElement<any, any> = inputElement || <input />;
 
   const { ref: originRef, props: originProps } = inputNode;
@@ -75,6 +76,7 @@ const Input: React.RefForwardingComponent<InputRef, InputProps> = (
 
     // Override over origin props
     id,
+    // TODO composeRef what
     ref: composeRef(ref, originRef as any),
     disabled,
     tabIndex,

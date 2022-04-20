@@ -722,6 +722,7 @@ const BaseSelect = React.forwardRef((props: BaseSelectProps, ref: React.Ref<Base
   });
 
   // >>> Selector
+  // Input框在这里渲染
   const selectorNode = (
     <SelectTrigger
       ref={triggerRef}
